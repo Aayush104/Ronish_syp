@@ -1,0 +1,203 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+/* Variables */
+:root {
+    --green: #16a085;
+    --black: #444;
+    --light-color: #777;
+    --box-shadow: 0.5rem 0.5rem 0 rgba(22, 160, 133, 0.2);
+    --border: 0.2rem solid var(--green);
+}
+
+/* Global Styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.2s ease-out;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+/* Section Styles */
+.section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Blog Section */
+.blogs .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.blogs .box-container .box {
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+
+.blogs .box-container .box .image {
+    height: 20rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.blogs .box-container .box .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.blogs .box-container .box:hover .image img {
+    transform: scale(1.2);
+}
+
+.blogs .box-container .box .content {
+    padding-top: 1rem;
+}
+
+.blogs .box-container .box .content .icon {
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blogs .box-container .box .content .icon a {
+    font-size: 1.4rem;
+    color: var(--light-color);
+}
+
+.blogs .box-container .box .content .icon a:hover {
+    color: var(--green);
+}
+
+.blogs .box-container .box .content .icon a i {
+    padding-right: 0.5rem;
+    color: var(--green);
+}
+
+.blogs .box-container .box .content h3 {
+    color: var(--black);
+    font-size: 3rem;
+}
+
+.blogs .box-container .box .content p {
+    color: var(--light-color);
+    font-size: 1.5rem;
+    line-height: 1.8;
+    padding: 1rem 0;
+}
+
+/* Media Queries */
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-btn {
+        display: initial;
+    }
+
+    .header .flex {
+        position: relative;
+    }
+
+    .header .navbar {
+        position: absolute;
+        top: 115%;
+        right: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: var(--box-shadow);
+        width: 30rem;
+        border: var(--border);
+        background: #fff;
+        transform: scale(0);
+        opacity: 0;
+        transform-origin: top right;
+        transition: none;
+    }
+
+    .header .navbar.active {
+        transform: scale(1);
+        opacity: 1;
+        transition: 0.2s ease-out;
+    }
+
+    .header .navbar a {
+        font-size: 2rem;
+        display: block;
+        margin: 2.5rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+}
+/* Updated Heading Styles */
+.heading {
+    text-align: center;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+    color: var(--black);
+    font-size: 5rem;
+    letter-spacing: 0.3rem;
+    text-shadow: 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+.heading span {
+    text-transform: uppercase;
+    color: #ff6347; /* Updated color */
+    text-shadow: 0.2rem 0.4rem rgba(255, 99, 71, 0.2); /* Updated color */
+}
+
+/* Updated Button Styles */
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border: var(--border);
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    color: #ff6347; /* Updated color */
+    cursor: pointer;
+    font-size: 1.7rem;
+    background: #fff;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn span {
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    background: #ff6347; /* Updated color */
+    color: #fff;
+    margin-left: 0.5rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background: #ff6347; /* Updated color */
+    color: #fff;
+}
+
+.btn:hover span {
+    color: #ff6347; /* Updated color */
+    background: #fff;
+    margin-left: 1rem;
+}
