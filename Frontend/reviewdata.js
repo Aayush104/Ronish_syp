@@ -78,9 +78,16 @@ async function fetchAndDisplayReviews() {
             reviewElement.innerHTML = `
                 <p class="rate">Rating: ${review.rating}</p>
                 <p class="comm">Comment: ${review.Comment}</p>
-                <button class='edit'>Edit</button>
+                <button class='edit' edit-id ="${review.ID}" >Edit</button>
                 <button class='delete' data-id="${review.ID}">Delete</button>
             `;
+
+            const editButton = reviewElement.querySelector('.edit');
+            editButton.addEventListener('click', () => {
+                const reviewId = review.ID;
+                window.location.href = `edit.html?id=${reviewId}`;
+            });
+           
 
             // Add event listener to delete button
             const deleteButton = reviewElement.querySelector('.delete');
@@ -108,5 +115,9 @@ async function fetchAndDisplayReviews() {
     }
 }
 
+
+
 // Call the function to fetch and display reviews when the page loads
 window.onload = fetchAndDisplayReviews;
+
+

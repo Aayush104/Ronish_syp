@@ -5,6 +5,7 @@ const { QueryTypes } = require('sequelize');
 const { sequelize, users, reviews } = require('./Model/Index');
 const bcrypt = require('bcrypt')
 const { Review } = require('./Model/Index'); // Adjust the path as necessary
+const review = require('./Model/review');
 
 app.use(cors());
 app.use(express.json());
@@ -131,6 +132,34 @@ app.delete('/deleteReview/:id', async (req, res) => {
         console.error('Error deleting review:', error);
         res.status(500).json({ error: "Internal server error" });
     }
+});
+
+
+app.post('/edit/:id', async (req, res) => {
+    const reviewId = req.params.id;
+    // console.log(reviewId);
+
+    const { rating, comment } = req.body;
+    // console.log(req.body);
+
+    const editData = await reviews.update(
+        {
+            rating: rating,
+            Comment: comment
+        },
+        {
+            where: {
+                ID: reviewId
+            }
+        }
+    );
+    
+
+    if(editData.length > 0){
+        res.json("success")
+    }
+
+  // Sending a success status
 });
 
 
